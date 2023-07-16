@@ -13,15 +13,17 @@ const FormularioTareas = ({ tareas, cambiarTareas }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
-        cambiarTareas([
-            ...tareas,
-            {
-                id: uuidv4(),
-                texto: inputTarea,
-                completada: false
-            }
-        ]);
+
+        if (inputTarea.trim() !== "") {
+            cambiarTareas([
+                ...tareas,
+                {
+                    id: uuidv4(),
+                    texto: inputTarea,
+                    completada: false
+                }
+            ]);
+        }
         cambiarInputTarea("")
 
     }
